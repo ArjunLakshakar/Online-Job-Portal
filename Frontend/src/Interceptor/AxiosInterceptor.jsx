@@ -2,7 +2,7 @@ import axios from "axios";
 import { removeUser } from "../Slices/UserSlice";
 
 const axiosInstance = axios.create({
-    baseURL: "http://localhost:9090",  // ✅ Make sure this matches your backend
+    baseURL: "https://online-job-portal-3.onrender.com",  // ✅ Make sure this matches your backend
     // headers: {
     //     "Content-Type": "application/json",
     // },
@@ -14,7 +14,7 @@ axiosInstance.interceptors.request.use(
         const token = localStorage.getItem('token');  // ✅ Ensure token is stored
         if (token) {
             config.headers.Authorization = `Bearer ${token}`;
-        }else {
+        } else {
             delete config.headers.Authorization; // ✅ Remove header if no token
         }
         return config;
@@ -25,13 +25,13 @@ axiosInstance.interceptors.request.use(
 );
 
 
-export const setupResponseInterceptor=(navigate, dispatch)=>{
+export const setupResponseInterceptor = (navigate, dispatch) => {
     axiosInstance.interceptors.response.use(
-        (response)=>{
+        (response) => {
             return response;
         },
         (error) => {
-            if(error.response?.status === 401){
+            if (error.response?.status === 401) {
                 // localStorage.removeItem("token"); // ✅ Clear token on 401
                 // dispatch(removeUser()); // ✅ Reset user state in Redux
                 navigate("/login"); // ✅ Redirect to login

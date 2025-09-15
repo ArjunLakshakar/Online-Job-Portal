@@ -1,7 +1,7 @@
 import axios from "axios"
 import { removeUser } from "../Slices/UserSlice";
 import { useDispatch } from "react-redux";
-const base_url = "http://localhost:9090/auth/";
+const base_url = "https://online-job-portal-3.onrender.com/auth/";
 
 
 const loginUser = async (login) => {
@@ -27,4 +27,4 @@ const navigateToLogin = (navigate, dispatch) => {
 };
 
 
-export{loginUser, navigateToLogin}
+export { loginUser, navigateToLogin }

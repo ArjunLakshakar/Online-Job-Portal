@@ -1,21 +1,21 @@
 import axios from "axios"
 import axiosInstance from "../Interceptor/AxiosInterceptor";
 
-// const base_url = "http://localhost:9090/notification/";
+// const base_url = "https://online-job-portal-3.onrender.com/notification/";
 
-const getNotifications = async (id)=>{
+const getNotifications = async (id) => {
     return axiosInstance.get(`/notification/get/${id}`)
-    .then(res => res.data)
-    .catch(error => {throw error;});
+        .then(res => res.data)
+        .catch(error => { throw error; });
 }
 
-const readNotifications = async (id)=>{
+const readNotifications = async (id) => {
     return axiosInstance.put(`/notification/read/${id}`)
-    .then(res => res.data)
-    .catch(error => {throw error;});
+        .then(res => res.data)
+        .catch(error => { throw error; });
 }
 
-export {getNotifications,readNotifications}
+export { getNotifications, readNotifications }
 
 
 // import { apiRequest } from "../utils/apiHelper";

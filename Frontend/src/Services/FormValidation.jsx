@@ -1,4 +1,4 @@
-const signupValidation = (name: string, value: string) => {
+const signupValidation = (name, value) => {
     switch (name) {
       case "name":
         if (value.length === 0) return "Name is required";
@@ -25,7 +25,7 @@ const signupValidation = (name: string, value: string) => {
   };
 
 
-  const loginValidation = (name: string, value: string) => {
+  const loginValidation = (name, value) => {
     switch (name) {
       case "name":
         if (value.length === 0) return "Name is required";
